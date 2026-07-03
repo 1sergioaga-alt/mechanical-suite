@@ -1,0 +1,13 @@
+[project]
+name = "mechanical-suite"
+version = "0.1.0"
+description = "Professional software suite for mechanical engineering."
+authors = [
+    { name = "Sergio Giraldo" }
+]
+readme = "README.md"
+requires-python = ">=3.13"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
