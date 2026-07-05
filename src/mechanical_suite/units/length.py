@@ -1,10 +1,3 @@
-"""
-Length module for Mechanical Suite.
-
-Provides the Length class and unit conversions.
-"""
-
-
 class Length:
     """Represents a length with its engineering unit."""
 
