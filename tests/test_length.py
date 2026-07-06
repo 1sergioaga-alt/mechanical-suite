@@ -12,3 +12,11 @@ def test_length_repr():
     length = Length(25, "mm")
 
     assert repr(length) == "25 mm"
+
+def test_length_conversion():
+    length = Length(1000, "mm")
+
+    converted = length.to("m")
+
+    assert converted.value == 1
+    assert converted.unit == "m"
