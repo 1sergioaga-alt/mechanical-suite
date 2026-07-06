@@ -27,3 +27,26 @@ class Length:
         new_value = value_mm / factors[new_unit]
 
         return Length(new_value, new_unit)
+    
+    def __add__(self, other):
+        """Add two Length objects."""
+
+        if not isinstance(other, Length):
+            return NotImplemented
+
+        other_converted = other.to(self.unit)
+
+        return Length(
+            self.value + other_converted.value,
+            self.unit
+        )
+
+    def __sub__(self, other):
+        """Subtract two Length objects."""
+        if not isinstance(other, Length):
+            return NotImplemented
+        other_converted = other.to(self.unit)
+        return Length(
+        self.value - other_converted.value,
+        self.unit
+    )

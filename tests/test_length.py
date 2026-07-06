@@ -20,3 +20,20 @@ def test_length_conversion():
 
     assert converted.value == 1
     assert converted.unit == "m"
+
+def test_add_lengths():
+    a = Length(500, "mm")
+    b = Length(1, "m")
+
+    result = a + b
+
+    assert result.value == 1500
+    assert result.unit == "mm"
+def test_subtract_lengths():
+    a = Length(2, "m")
+    b = Length(50, "cm")
+
+    result = a - b
+
+    assert result.value == 1.5
+    assert result.unit == "m"
