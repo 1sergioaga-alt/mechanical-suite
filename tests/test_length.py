@@ -37,3 +37,11 @@ def test_subtract_lengths():
 
     assert result.value == 1.5
     assert result.unit == "m"
+
+def test_multiply_length():
+    length = Length(500, "mm")
+
+    result = length * 2
+
+    assert result.value == 1000
+    assert result.unit == "mm"
