@@ -54,3 +54,9 @@ class Length:
         if isinstance(other, (int, float)):
             return Length(self.value * other, self.unit)
         raise TypeError("Can only multiply Length by a number")
+
+    def __truediv__(self, other):
+        if isinstance(other, (int, float)):
+            return Length(self.value / other, self.unit)
+
+        raise TypeError("Can only divide Length by a number")

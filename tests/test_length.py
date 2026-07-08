@@ -45,3 +45,20 @@ def test_multiply_length():
 
     assert result.value == 1000
     assert result.unit == "mm"
+
+def test_divide_length():
+    length = Length(1000, "mm")
+
+    result = length / 2
+
+    assert result.value == 500
+    assert result.unit == "mm"
+    
+def test_divide_by_zero():
+    length = Length(100, "mm")
+
+    try:
+        length / 0
+        assert False
+    except ZeroDivisionError:
+        assert True
