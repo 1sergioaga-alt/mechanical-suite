@@ -62,3 +62,27 @@ def test_divide_by_zero():
         assert False
     except ZeroDivisionError:
         assert True
+
+def test_convert_mm_to_m():
+    length = Length(1000, "mm")
+
+    result = length.to("m")
+
+    assert result.value == 1
+    assert result.unit == "m"
+
+def test_convert_cm_to_mm():
+    length = Length(25, "cm")
+
+    result = length.to("mm")
+
+    assert result.value == 250
+    assert result.unit == "mm"
+
+def test_convert_m_to_cm():
+    length = Length(2, "m")
+
+    result = length.to("cm")
+
+    assert result.value == 200
+    assert result.unit == "cm"
