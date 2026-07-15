@@ -43,3 +43,16 @@ class Quantity:
             return self.__class__(self.value / other, self.unit)
 
         raise TypeError("Can only divide by a number")
+    
+    def to(self, new_unit: str):
+        """Convert quantity to another unit."""
+        if self.unit not in self._CONVERSION_FACTORS:
+            raise ValueError(f"Unsupported unit: {self.unit}")
+
+        if new_unit not in self._CONVERSION_FACTORS:
+            raise ValueError(f"Unsupported unit: {new_unit}")
+
+        value_base = self.value * self._CONVERSION_FACTORS[self.unit]
+        new_value = value_base / self._CONVERSION_FACTORS[new_unit]
+
+        return self.__class__(new_value, new_unit)
