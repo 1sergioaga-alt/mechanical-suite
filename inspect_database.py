@@ -19,4 +19,13 @@ cursor = connection.execute("SELECT * FROM tolerance_grades")
 for row in cursor:
     print(row)
 
+print("\nFundamental deviations:\n")
+
+cursor = connection.execute(
+    "SELECT * FROM fundamental_deviations"
+)
+
+for row in cursor:
+    print(row)
+
 connection.close()

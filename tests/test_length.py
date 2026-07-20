@@ -81,8 +81,11 @@ def test_convert_cm_to_mm():
 
 def test_convert_m_to_cm():
     length = Length(2, "m")
-
     result = length.to("cm")
-
     assert result.value == 200
     assert result.unit == "cm"
+
+def test_convert_um_to_mm():
+    length = Length(25, "um")
+    result = length.to("mm")
+    assert result.value == 0.025

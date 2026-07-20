@@ -1,18 +1,23 @@
+from mechanical_suite.units.length import Length
 class FitResult:
-    """Represents the result of an ISO 286 fit calculation."""
 
     def __init__(
         self,
-        hole_upper_deviation: float,
-        hole_lower_deviation: float,
-        shaft_upper_deviation: float,
-        shaft_lower_deviation: float,
-        hole_maximum_size: float,
-        hole_minimum_size: float,
-        shaft_maximum_size: float,
-        shaft_minimum_size: float,
-        minimum_clearance: float,
-        maximum_clearance: float,
+        hole_upper_deviation: Length,
+        hole_lower_deviation: Length,
+
+        shaft_upper_deviation: Length,
+        shaft_lower_deviation: Length,
+
+        hole_maximum_size: Length,
+        hole_minimum_size: Length,
+
+        shaft_maximum_size: Length,
+        shaft_minimum_size: Length,
+
+        minimum_clearance: Length,
+        maximum_clearance: Length,
+
         fit_type: str,
     ):
         self.hole_upper_deviation = hole_upper_deviation

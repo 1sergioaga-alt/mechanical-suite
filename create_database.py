@@ -20,6 +20,18 @@ CREATE TABLE IF NOT EXISTS tolerance_grades (
 )
 """)
 
+connection.execute("""
+CREATE TABLE IF NOT EXISTS fundamental_deviations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    letter TEXT NOT NULL,
+    element_type TEXT NOT NULL,
+    min_diameter REAL NOT NULL,
+    max_diameter REAL NOT NULL,
+    lower_deviation_um INTEGER NOT NULL,
+    upper_deviation_um INTEGER NOT NULL
+)
+""")
+
 connection.commit()
 
 print(f"Database created at: {database_path}")
