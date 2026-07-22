@@ -7,3 +7,16 @@ class Length(Quantity):
         "cm": 10,
         "m": 1000,
     }
+
+    _DISPLAY_DECIMALS = {
+        "um": 0,
+        "mm": 3,
+        "cm": 3,
+        "m": 3,
+    }
+
+    def __repr__(self):
+        decimals = self._DISPLAY_DECIMALS.get(self.unit)
+        if decimals is None:
+            return f"{self.value} {self.unit}"
+        return f"{self.value:.{decimals}f} {self.unit}"
