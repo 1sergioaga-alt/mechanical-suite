@@ -49,5 +49,5 @@ class FitResult:
             "Clearances\n"
             f"  Minimum         : {self.minimum_clearance}\n"
             f"  Maximum         : {self.maximum_clearance}\n\n"
-            f"Fit type          : {self.fit_type}"
+            f"Fit type          : {self.fit_type}\n"
         )

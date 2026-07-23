@@ -11,7 +11,7 @@ def test_create_length():
 def test_length_repr():
     length = Length(25, "mm")
 
-    assert repr(length) == "25 mm"
+    assert repr(length) == "25.000 mm"
 
 def test_length_conversion():
     length = Length(1000, "mm")
@@ -43,7 +43,7 @@ def test_multiply_length():
 
     result = length * 2
 
-    assert result.value == 1000
+    assert result.value == 1000.000
     assert result.unit == "mm"
 
 def test_divide_length():
@@ -51,7 +51,7 @@ def test_divide_length():
 
     result = length / 2
 
-    assert result.value == 500
+    assert result.value == 500.000
     assert result.unit == "mm"
     
 def test_divide_by_zero():
@@ -76,7 +76,7 @@ def test_convert_cm_to_mm():
 
     result = length.to("mm")
 
-    assert result.value == 250
+    assert result.value == 250.000
     assert result.unit == "mm"
 
 def test_convert_m_to_cm():
