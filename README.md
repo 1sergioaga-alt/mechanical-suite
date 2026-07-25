@@ -14,3 +14,6 @@ To become the leading software platform for mechanical engineers in Latin Americ
 - Modularity
 - Productivity
 - Continuous Improvement
+
+# Internacionalización desde el dominio. 
+El núcleo del software es independiente del idioma. Toda la presentación de texto se realiza mediante una capa de localización, permitiendo ofrecer la aplicación en múltiples idiomas sin  modificar la lógica de ingeniería.
