@@ -866,3 +866,23 @@ FITS: dict[str, FitKnowledge] = {
     },
 
 }
+
+FIT_SELECTOR_QUESTIONS: dict[str, str] = {
+    "motion": "What type of motion is required?",
+    "precision": "What level of accuracy is required?",
+    "removable": "Should the assembly be removable?",
+}
+
+
+FIT_SELECTOR_OPTIONS: dict[str, str] = {
+    "rotating": "Rotating",
+    "sliding": "Sliding",
+    "fixed": "Fixed",
+
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+
+    "yes": "Yes",
+    "no": "No",
+}

@@ -1,28 +1,221 @@
 from mechanical_suite.fits.models.selection_criteria import SelectionCriteria
 from mechanical_suite.fits.models.recommendation import Recommendation
-from mechanical_suite.enums.fit_category import FitCategory
+from mechanical_suite.fits.models.recommendation_level import (
+    RecommendationLevel,
+)
 from mechanical_suite.enums.motion import Motion
 from mechanical_suite.enums.precision import Precision
-from mechanical_suite.localization.translation_key import TranslationKey
 
 
 ISO286_RECOMMENDATIONS = [
     (
-        SelectionCriteria   (
+        SelectionCriteria(
             motion=Motion.ROTATING,
             precision=Precision.HIGH,
             removable=True,
         ),
         Recommendation(
             fit="H7/g6",
-            description=TranslationKey.FIT_GENERAL_RUNNING,
-            applications=TranslationKey.APPLICATIONS_GENERAL_RUNNING,
-            advantages=TranslationKey.ADVANTAGES_GENERAL_RUNNING,
-            disadvantages=TranslationKey.DISADVANTAGES_GENERAL_RUNNING,
-            assembly=TranslationKey.ASSEMBLY_GENERAL_RUNNING,
-            notes=TranslationKey.NOTES_GENERAL_RUNNING,
-            standard=TranslationKey.STANDARD_ISO286,
-            ),
-       
+            level=RecommendationLevel.DIRECT,
         ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.ROTATING,
+            precision=Precision.MEDIUM,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H8/f7",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.ROTATING,
+            precision=Precision.LOW,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H9/d9",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.SLIDING,
+            precision=Precision.HIGH,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H7/h6",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.SLIDING,
+            precision=Precision.MEDIUM,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H8/e8",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.SLIDING,
+            precision=Precision.LOW,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H11/c11",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.FIXED,
+            precision=Precision.HIGH,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H7/h6",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+    (
+        SelectionCriteria(
+            motion=Motion.FIXED,
+            precision=Precision.MEDIUM,
+            removable=True,
+        ),
+        Recommendation(
+            fit="H7/h6",
+            level=RecommendationLevel.DIRECT,
+        ),
+    ),
+(
+    SelectionCriteria(
+        motion=Motion.ROTATING,
+        precision=Precision.HIGH,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/p6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/k6", "H7/n6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.ROTATING,
+        precision=Precision.MEDIUM,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/n6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/m6", "H7/p6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.ROTATING,
+        precision=Precision.LOW,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/s6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/r6", "H7/p6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.SLIDING,
+        precision=Precision.HIGH,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/k6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/m6", "H7/n6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.SLIDING,
+        precision=Precision.MEDIUM,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/m6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/k6", "H7/n6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.SLIDING,
+        precision=Precision.LOW,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/r6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/s6", "H7/m6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.FIXED,
+        precision=Precision.HIGH,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/p6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/k6", "H7/n6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.FIXED,
+        precision=Precision.MEDIUM,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/n6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/m6", "H7/p6"),
+    ),
+),
+(
+    SelectionCriteria(
+        motion=Motion.FIXED,
+        precision=Precision.LOW,
+        removable=False,
+    ),
+    Recommendation(
+        fit="H7/s6",
+        level=RecommendationLevel.ORIENTATIVE,
+        alternatives=("H7/r6", "H7/p6"),
+    ),
+),
+
+(
+    SelectionCriteria(
+        motion=Motion.FIXED,
+        precision=Precision.LOW,
+        removable=True,
+    ),
+    Recommendation(
+        fit=None,
+        level=RecommendationLevel.INSUFFICIENT,
+        alternatives=("H7/g6", "H7/h6", "H8/f7"),
+    ),
+),
+
 ]

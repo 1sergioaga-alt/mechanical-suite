@@ -1,20 +1,13 @@
-from mechanical_suite.localization.translation_key import TranslationKey
-class Recommendation:
-    """Represents an ISO 286 fit recommendation."""
+from mechanical_suite.fits.models.recommendation_level import RecommendationLevel
 
+
+class Recommendation:
     def __init__(
         self,
-        fit: str,
-        description: TranslationKey,
-        applications: TranslationKey,
-        advantages: TranslationKey,
-        disadvantages: TranslationKey,
-        assembly: TranslationKey,
-        notes: TranslationKey,
-        standard: TranslationKey,
+        fit: str | None,
+        level: RecommendationLevel,
+        alternatives: tuple[str, ...] = (),
     ):
         self.fit = fit
-        self.description_key = description
-        self.applications_key = applications
-        self.advantages_key = advantages
-        self.disadvantages_key = disadvantages
+        self.level = level
+        self.alternatives = alternatives

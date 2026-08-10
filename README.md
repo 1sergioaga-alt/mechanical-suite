@@ -17,3 +17,6 @@ To become the leading software platform for mechanical engineers in Latin Americ
 
 # Internacionalización desde el dominio. 
 El núcleo del software es independiente del idioma. Toda la presentación de texto se realiza mediante una capa de localización, permitiendo ofrecer la aplicación en múltiples idiomas sin  modificar la lógica de ingeniería.
+
+# Método de traducción.
+Toda cadena visible al usuario debe representarse mediante un TranslationKey y traducirse exclusivamente desde knowledge/languages.
