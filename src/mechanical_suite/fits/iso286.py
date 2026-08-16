@@ -7,29 +7,21 @@ class ISO286:
     def __init__(self):
         database_path = Path("database") / "mechanical_suite.db"
         self.connection = sqlite3.connect(database_path)
-
     def get_hole_deviations(self, fit: Fit):
-        it = self._get_tolerance_grade(
-        fit.nominal_diameter,
-        f"IT{fit.hole.grade}",
+        return self.get_tolerance_definition(
+            diameter=fit.nominal_diameter,
+            letter=fit.hole.letter,
+            element_type="hole",
+            grade=f"IT{fit.hole.grade}",
         )
-        lower, upper = self._get_fundamental_deviation(
-        fit.nominal_diameter,
-        fit.hole.letter,
-        "hole",
-        )
-        upper = lower + it
-        
-        return lower, upper
 
     def get_shaft_deviations(self, fit: Fit):
-        lower, upper = self._get_fundamental_deviation(
-        fit.nominal_diameter,
-        fit.shaft.letter,
-        "shaft",
+        return self.get_tolerance_definition(
+            diameter=fit.nominal_diameter,
+            letter=fit.shaft.letter,
+            element_type="shaft",
+            grade=f"IT{fit.shaft.grade}",
         )
-
-        return lower, upper
 
     def get_fit_limits(self, fit: Fit):
         pass
@@ -64,28 +56,38 @@ class ISO286:
         
         return row[0]
     
-    def _get_fundamental_deviation(
+    def get_tolerance_definition(
         self,
         diameter: float,
         letter: str,
         element_type: str,
+        grade: str,
     ):
         cursor = self.connection.execute(
             """
             SELECT lower_deviation_um, upper_deviation_um
-            FROM fundamental_deviations
+            FROM tolerance_definitions
             WHERE
                 min_diameter <= ?
                 AND max_diameter >= ?
                 AND letter = ?
                 AND element_type = ?
+                AND grade = ?
             """,
-            (diameter, diameter, letter, element_type),
+            (
+                diameter,
+                diameter,
+                letter,
+                element_type,
+                grade,
+            ),
         )
 
         row = cursor.fetchone()
 
         if row is None:
-            raise ValueError("Fundamental deviation not found.")
+            raise ValueError("Tolerance definition not found.")
+
         lower_deviation, upper_deviation = row
+
         return lower_deviation, upper_deviation

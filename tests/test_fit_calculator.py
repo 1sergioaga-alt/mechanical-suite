@@ -4,7 +4,6 @@ from mechanical_suite.fits.calculator import Calculator
 from mechanical_suite.fits.models.fit import Fit
 from mechanical_suite.fits.models.tolerance import Tolerance
 
-
 def test_calculate_h7_g6():
     fit = Fit(
         nominal_diameter=40,

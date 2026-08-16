@@ -21,10 +21,6 @@ for row in cursor:
 
 print("\nFundamental deviations:\n")
 
-cursor = connection.execute(
-    "SELECT * FROM fundamental_deviations"
-)
-
 for row in cursor:
     print(row)
 
