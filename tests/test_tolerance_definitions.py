@@ -2,7 +2,11 @@ import sqlite3
 from pathlib import Path
 
 
-DATABASE_PATH = Path("database") / "mechanical_suite.db"
+DATABASE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "database"
+    / "mechanical_suite.db"
+    )
 
 
 def test_tolerance_definitions_have_no_duplicates():

@@ -5,7 +5,11 @@ import sqlite3
 class ISO286:
     """Provides ISO 286 calculations."""
     def __init__(self):
-        database_path = Path("database") / "mechanical_suite.db"
+        database_path = (
+            Path(__file__).resolve().parents[3]
+            / "database"
+            / "mechanical_suite.db"
+        )
         self.connection = sqlite3.connect(database_path)
     def get_hole_deviations(self, fit: Fit):
         return self.get_tolerance_definition(
